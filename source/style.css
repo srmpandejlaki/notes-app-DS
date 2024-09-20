@@ -39,7 +39,7 @@ main {
 }
 
 form {
-  width: 40%;
+  width: 20em;
   height: 30vh;
   padding: 10px;
 
@@ -60,19 +60,47 @@ form {
   flex-direction: column;
 }
 
-label {
+label,
+.notesData h2,
+.notesData p,
+.notesData h3 {
   color: white;
   margin-bottom: 5px;
+}
+
+input {
+  padding: 8px;
+}
+
+textarea {
+  resize: none;
+  padding: 16px 7px;
 }
 
 button {
   width: 5rem;
   height: 15%;
   align-items: center;
-  background-color: silver;
-  color: rgb(46, 46, 46);
+  background-color: rgb(212, 212, 212);
   border: none;
   border-radius: 5px;
+
+  align-self: end;
+}
+
+.notesData {
+  width: 80%;
+  height: auto;
+
+  background-color: hsl(180, 24%, 35%);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.data {
+  border: 2px solid white;
+  border-radius: 8px;
+  padding: 10px;
 }
 
 /* footer */
