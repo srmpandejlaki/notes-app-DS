@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <link rel="stylesheet" href="source/style.css">
-    
+
+    <link rel="stylesheet" href="source/style.css" />
+
     <title>Notes App</title>
   </head>
   <body>
@@ -14,8 +14,12 @@
     </header>
 
     <main>
-      <div class="container-form">
-        <h1>Simpan Ceritamu disini</h1>
+      <h1>Simpan Ceritamu disini</h1>
+
+      <div class="container">
+        <!-- button tmbh catatan -->
+        <button class="btn-tmbh-catatan">+ catatan</button>
+
         <form action="">
           <div class="input-title">
             <label for="title">Title</label>
@@ -25,21 +29,34 @@
             <label for="description">Description</label>
             <textarea id="description" name="description"></textarea>
           </div>
-          <button type="submit">Save Note</button>
+          <button class="save-btn" type="submit">Save Note</button>
         </form>
 
         <div class="notesData">
           <h2>Catatanmu</h2>
-          <div class="data">
-            <h3>Title : </h3>
-            <p>Description : </p>
+          <div class="note">
+            <div class="data">
+              <h3>Title :</h3>
+              <p>Description :</p>
+            </div>
+            <div class="data">
+              <h3>Title :</h3>
+              <p>Description :</p>
+            </div>
+            <div class="data">
+              <h3>Title :</h3>
+              <p>Description :</p>
+            </div>
           </div>
         </div>
       </div>
     </main>
 
     <footer>
-      <p>&#169 Mutii. 2024</p>
+      <footer-bar></footer-bar>
     </footer>
+
+    <!-- javascript -->
+    <!-- <script src="/source/main.js"></script> -->
   </body>
 </html>

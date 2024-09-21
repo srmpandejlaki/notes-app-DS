@@ -27,19 +27,41 @@ main {
 
   background-color: rgb(253, 253, 253);
 }
-.container-form {
-  padding: 2rem;
+
+.container {
+  width: 95%;
+  margin: 15px 0;
+
   display: grid;
-  gap: 25px;
+  grid-template-columns: 15vw 30vw 50vw;
+  column-gap: 10px;
+
+  justify-items: center;
 }
 
-.container-form h1 {
+button {
+  background-color: hsl(180, 24%, 35%);
+  color: white;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: hsl(180, 32%, 30%);
+}
+
+.btn-tmbh-catatan {
+  height: 40px;
+  width: 90px;
+}
+
+h1 {
   text-align: center;
   font-weight: lighter;
+  padding-top: 10px;
 }
 
 form {
-  width: 20em;
+  width: 90%;
   height: 30vh;
   padding: 10px;
 
@@ -77,30 +99,37 @@ textarea {
   padding: 16px 7px;
 }
 
-button {
+.save-btn {
   width: 5rem;
   height: 15%;
   align-items: center;
-  background-color: rgb(212, 212, 212);
-  border: none;
-  border-radius: 5px;
+  border: 2px solid white;
 
   align-self: end;
 }
 
 .notesData {
-  width: 80%;
+  width: 95%;
   height: auto;
 
   background-color: hsl(180, 24%, 35%);
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 8px;
+}
+
+.note {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+  column-gap: 5px;
 }
 
 .data {
   border: 2px solid white;
   border-radius: 8px;
+
   padding: 10px;
+  margin-bottom: 10px;
 }
 
 /* footer */
