@@ -30,14 +30,15 @@ main {
 }
 
 .container {
-  width: 90%;
-  margin: 15px 0;
+  width: 98%;
+  margin: 15px 10px;
 
   display: grid;
   grid-template-columns: 30vw 50vw;
   column-gap: 10px;
 
   justify-content: center;
+  align-content: space-between;
 }
 
 button {
@@ -110,7 +111,7 @@ textarea {
 }
 
 .notesData {
-  width: 95%;
+  width: 90%;
   height: auto;
 
   background-color: hsl(180, 24%, 35%);
