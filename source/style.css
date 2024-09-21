@@ -4,15 +4,13 @@
 }
 
 header {
-  width: 100%;
+  width: 100vw;
   height: 10vh;
   background-color: darkslategrey;
-  position: sticky;
 }
 
 header h2 {
   color: rgb(253, 253, 253);
-  /* text-align: center; */
   padding: 2.5vh 5vh;
 }
 
@@ -26,17 +24,20 @@ main {
   height: 82vh;
 
   background-color: rgb(253, 253, 253);
+
+  display: grid;
+  grid-template-rows: 10%;
 }
 
 .container {
-  width: 95%;
+  width: 90%;
   margin: 15px 0;
 
   display: grid;
-  grid-template-columns: 15vw 30vw 50vw;
+  grid-template-columns: 30vw 50vw;
   column-gap: 10px;
 
-  justify-items: center;
+  justify-content: center;
 }
 
 button {
