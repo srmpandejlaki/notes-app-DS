@@ -1,20 +1,16 @@
 * {
   margin: 0;
+  padding: 0;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 header {
-  height: 10%;
   background-color: darkslategrey;
-}
-
-header h2 {
-  color: rgb(253, 253, 253);
-  padding: 2.5vh 5vh;
-}
-
-header h2 span {
-  color: lightgrey;
 }
 
 /* main */
@@ -134,12 +130,7 @@ textarea {
 
 /* footer */
 footer {
-  width: 100vw;
   height: 8.5vh;
 
   background-color: darkslategrey;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
 }
