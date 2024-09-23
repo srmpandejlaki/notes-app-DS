@@ -91,7 +91,7 @@ class noteForm extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-          <form id="noteForm">
+          <form>
           <div class="input-title">
             <label for="title">Title</label>
             <input type="text" id="title" name="title" />

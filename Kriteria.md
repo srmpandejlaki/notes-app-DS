@@ -1,5 +1,5 @@
 /\* KRITERIA
-wajib 1
+wajib 1 (sudah)
 menampilkan daftar catatan dengan baik
 const notesData = [
 {
@@ -12,7 +12,7 @@ archived: false,
 ];
 console.log(notesData);
 
-wajib 2
+wajib 2 (sudah)
 formulir tambah catatan
 
 wajib 3 (sudah)
