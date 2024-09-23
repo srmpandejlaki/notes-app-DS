@@ -60,10 +60,13 @@ function makeNotes(notesData) {
   textTitle.innerHTML = notesData.title;
 
   const textDesc = document.createElement("p");
-  textDesc.innerHTML = notesData.title;
+  textDesc.innerHTML = notesData.body;
 
   const textCont = document.createElement("div");
   textCont.append(textTitle, textDesc);
+  textCont.classList.add("data");
+
+  return textCont;
 }
 
 // simpan data ke local storage
@@ -74,9 +77,9 @@ document.addEventListener(RENDER_EVENT, function () {
   for (const noteItem of story) {
     const noteElement = makeNotes(noteItem);
     if (!noteItem.archived) {
-      console.log("tidak bisa ditampilkan");
-    } else {
       saveNotes.append(noteElement);
+    } else {
+      console.log("tidak bisa ditampilkan");
     }
   }
 });
