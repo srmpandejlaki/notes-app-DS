@@ -47,6 +47,8 @@ function generateNotesData(id, title, body, createdAt, archived) {
   return { id, title, body, createdAt, archived };
 }
 
+// buat notes
+
 // simpan data
 document.addEventListener(RENDER_EVENT, function () {
   const saveNotes = document.getElementById("note");
@@ -63,3 +65,27 @@ function saveData() {
 
 const SAVED_EVENT = "note-tersimpan";
 const STORAGE_KEY = "NOTES_APP";
+
+function isstorageExist() {
+  if (typeof Storage === undefined) {
+    alert("Browser tidak mendukung local storage");
+    return false;
+  }
+  return true;
+}
+
+document.addEventListener(SAVED_EVENT, function () {
+  console.log(localStorage.getItem(STORAGE_KEY));
+});
+
+function loadDataFromStorage() {
+  const serializedData = localStorage.getItem(STORAGE_KEY);
+  let data = JSON.parse(serializedData);
+
+  if (data !== null) {
+    for (const noteStory of data) {
+      story.push(noteStory);
+    }
+  }
+  document.dispatchEvent(new Event(RENDER_EVENT));
+}
