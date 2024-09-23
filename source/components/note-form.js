@@ -14,10 +14,16 @@ class noteForm extends HTMLElement {
         :host {
           display: block;
           width: 100%;
+        }
 
+        button {
+          background-color: hsl(180, 24%, 35%);
           color: white;
+          border-radius: 8px;
+        }
 
-          box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+        button:hover {
+          background-color: hsl(180, 32%, 30%);
         }
 
         form {
