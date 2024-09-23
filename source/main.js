@@ -56,7 +56,7 @@ function generateNotesData(id, title, body, createdAt, archived) {
 
 // buat notes
 
-// simpan data
+// simpan data ke local storage
 document.addEventListener(RENDER_EVENT, function () {
   const saveNotes = document.getElementById("note");
   saveNotes.innerHTML = "";
