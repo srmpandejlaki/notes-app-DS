@@ -18,9 +18,9 @@ const RENDER_EVENT = "render-note";
 function addNote() {
   const title = document.getElementById("title").value;
   const body = document.getElementById("description").value;
-  // const date
 
   const generateID = generateId("notes");
+  const date = generateDate();
   const notesData = generateNotesData(generateID, title, body, date, false);
   story.push(notesData);
 
@@ -40,6 +40,13 @@ function generateId(prefix, length = 5) {
   }
 
   return `${prefix}-${number}-${suffix}`;
+}
+
+// generate createdAt
+function generateDate() {
+  const today = new Date();
+  const isoString = today.toISOString();
+  return isoString;
 }
 
 // buat objek note

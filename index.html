@@ -17,7 +17,17 @@
       <h1>Save Your Story Here</h1>
 
       <div class="container">
-        <note-Form></note-Form>
+        <form id="noteForm">
+          <div class="input-title">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="title" />
+          </div>
+          <div class="input-desc">
+            <label for="description">Description</label>
+            <textarea id="description" name="description"></textarea>
+          </div>
+          <button class="save-btn" type="submit">Save Note</button>
+        </form>
 
         <div class="notesData">
           <h2>Your Notes</h2>
