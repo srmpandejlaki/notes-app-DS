@@ -46,3 +46,20 @@ function generateId(prefix, length = 5) {
 function generateNotesData(id, title, body, createdAt, archived) {
   return { id, title, body, createdAt, archived };
 }
+
+// simpan data
+document.addEventListener(RENDER_EVENT, function () {
+  const saveNotes = document.getElementById("note");
+  saveNotes.innerHTML = "";
+});
+
+function saveData() {
+  if (isstorageExist()) {
+    const parsed = JSON.stringify(story);
+    localStorage.setItem(STORAGE_KEY, parsed);
+    document.dispatchEvent(new Event(SAVED_EVENT));
+  }
+}
+
+const SAVED_EVENT = "note-tersimpan";
+const STORAGE_KEY = "NOTES_APP";
