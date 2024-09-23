@@ -76,7 +76,7 @@ document.addEventListener(RENDER_EVENT, function () {
 
   for (const noteItem of story) {
     const noteElement = makeNotes(noteItem);
-    if (!noteItem.archived) {
+    if (noteItem.archived == false) {
       saveNotes.append(noteElement);
     } else {
       console.log("tidak bisa ditampilkan");
