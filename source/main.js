@@ -55,11 +55,30 @@ function generateNotesData(id, title, body, createdAt, archived) {
 }
 
 // buat notes
+function makeNotes(notesData) {
+  const textTitle = document.createElement("h3");
+  textTitle.innerHTML = notesData.title;
+
+  const textDesc = document.createElement("p");
+  textDesc.innerHTML = notesData.title;
+
+  const textCont = document.createElement("div");
+  textCont.append(textTitle, textDesc);
+}
 
 // simpan data ke local storage
 document.addEventListener(RENDER_EVENT, function () {
   const saveNotes = document.getElementById("note");
   saveNotes.innerHTML = "";
+
+  for (const noteItem of story) {
+    const noteElement = makeNotes(noteItem);
+    if (!noteItem.archived) {
+      console.log("tidak bisa ditampilkan");
+    } else {
+      saveNotes.append(noteElement);
+    }
+  }
 });
 
 function saveData() {
