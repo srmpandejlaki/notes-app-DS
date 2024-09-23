@@ -29,6 +29,7 @@ function addNote() {
   saveData();
 }
 
+// buat id
 function generateId(prefix, length = 5) {
   const number = Math.floor(10000 + Math.random() * 90000);
   const word = "abcdefghijklmnopqrstuvwxyz";
@@ -39,4 +40,9 @@ function generateId(prefix, length = 5) {
   }
 
   return `${prefix}-${number}-${suffix}`;
+}
+
+// buat objek note
+function generateNotesData(id, title, body, createdAt, archived) {
+  return { id, title, body, createdAt, archived };
 }
