@@ -106,4 +106,22 @@ const notesData = [
   },
 ];
 
-console.log(notesData);
+class noteData {
+  static getAll() {
+    return notesData;
+  }
+
+  static searchNote(query) {
+    return clubs.filter((note) => {
+      const loweredCaseNoteName = (note.title || "-").toLowerCase();
+      const jammedNoteName = loweredCaseNoteName.replace(/\s/g, "");
+
+      const loweredCaseQuery = query.toLowerCase();
+      const jammedQuery = loweredCaseQuery.replace(/\s/g, "");
+
+      return jammedNoteName.indexOf(jammedQuery) !== -1;
+    });
+  }
+}
+
+export default noteData;

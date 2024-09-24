@@ -12,7 +12,6 @@ class headerBar extends HTMLElement {
   _updateStyle() {
     this._style.textContent = `
         :host {
-          display: block;
           width: 100%;
 
           color: white;
