@@ -1,65 +1,54 @@
 import utils from "../utils.js";
 import noteData from "../data/local/notesData.js";
+import { customValidation } from "/source/custom-validation.js";
 
 const home = () => {
-  const searchNote = document.querySelector("search-bar");
+  const notes = noteData.getAll();
 
   const NoteContainerElement = document.querySelector("#notesData");
-  const QueryWaitingNote = document.querySelector("note-waiting");
-  const LoadingNote = document.querySelector("search-loading");
   const ListNote = NoteContainerElement.querySelector("notes-list");
-
-  const showNotes = (query) => {
-    showLoading();
-
-    const result = noteData.searchNote(query);
-    displayResult(result);
-
-    showNoteList();
-  };
-
-  const onSearchHandler = (event) => {
-    event.preventDefault();
-
-    const { query } = event.detail;
-    showNotes(query);
-  };
 
   const displayResult = (notes) => {
     const noteItemElements = notes.map((note) => {
       const noteItemElement = document.createElement("notes-item");
       noteItemElement.note = note;
 
-      return clubItemElement;
+      return noteItemElement;
     });
 
     utils.emptyElement(ListNote);
     ListNote.append(...noteItemElements);
   };
 
-  const showNoteList = () => {
-    Array.from(NoteContainerElement.children).forEach((element) => {
-      utils.hideElement(element);
-    });
-    utils.showElement(ListNote);
-  };
+  displayResult(notes);
 
-  const showLoading = () => {
-    Array.from(NoteContainerElement.children).forEach((element) => {
-      utils.hideElement(element);
-    });
-    utils.showElement(LoadingNote);
-  };
+  // custom validation
+  const form = document.querySelector("form");
+  const titleInput = form.elements["title"];
 
-  const showQueryWaiting = () => {
-    Array.from(NoteContainerElement.children).forEach((element) => {
-      utils.hideElement(element);
-    });
-    utils.showElement(QueryWaitingNote);
-  };
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
 
-  searchNote.addEventListener("search", onSearchHandler);
-  showQueryWaiting();
+  titleInput.addEventListener("change", customValidation);
+  titleInput.addEventListener("invalid", customValidation);
+
+  titleInput.addEventListener("blur", (event) => {
+    // Validate the field
+    const isValid = event.target.validity.valid;
+    const errorMessage = event.target.validationMessage;
+
+    const connectedValidationId = event.target.getAttribute("aria-describedby");
+    const connectedValidationEl = connectedValidationId
+      ? document.getElementById(connectedValidationId)
+      : null;
+
+    if (connectedValidationEl && errorMessage && !isValid) {
+      connectedValidationEl.innerText = errorMessage;
+    } else {
+      connectedValidationEl.innerText = "";
+    }
+  });
 };
 
 export default home;

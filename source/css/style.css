@@ -20,8 +20,9 @@ main {
 .container {
   width: 100%;
 
-  display: grid;
-  grid-template-areas: "form note";
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 15px;
 
   justify-content: center;
@@ -45,7 +46,6 @@ h1 {
 }
 
 form {
-  grid-template-areas: form;
   width: 40vw;
   padding: 10px;
 
@@ -90,35 +90,12 @@ input {
   align-self: end;
 }
 
-/* search bar */
-.search-container {
-  grid-template-areas: search;
+.validation-message {
+  color: red;
 }
 
-/* notesData */
-
-.notesData {
-  grid-template-areas: note;
-  width: 100%;
-
-  background-color: hsl(180, 24%, 35%);
-  padding: 5px 10px;
-  border-radius: 8px;
-}
-
-.note {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-
-  column-gap: 5px;
-}
-
-.data {
-  border: 2px solid white;
-  border-radius: 8px;
-
-  padding: 10px;
-  margin-bottom: 10px;
+input:user-invalid {
+  border: 1px solid red;
 }
 
 /* footer */
@@ -129,12 +106,7 @@ footer {
 }
 
 /* media query */
-@media screen and (max-width: 1040px) {
-  .container {
-    grid-template-areas:
-      "form search"
-      "note note";
-  }
+/* @media screen and (max-width: 1040px) {
 
   .note {
     display: grid;
@@ -145,13 +117,6 @@ footer {
 }
 
 @media screen and (max-width: 480px) {
-  .container {
-    grid-template-areas:
-      "form"
-      "search"
-      "note";
-  }
-
   .note {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -161,12 +126,6 @@ footer {
 }
 
 @media screen and (max-width: 360px) {
-  .container {
-    grid-template-areas:
-      "form"
-      "search"
-      "note";
-  }
 
   .note {
     display: grid;
@@ -174,4 +133,4 @@ footer {
 
     column-gap: 5px;
   }
-}
+} */

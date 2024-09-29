@@ -4,7 +4,7 @@ class NotesList extends HTMLElement {
   _shadowRoot = null;
   _style = null;
 
-  _column = 2;
+  _column = 250;
   _gutter = 16;
 
   static get observedAttributes() {
@@ -28,7 +28,12 @@ class NotesList extends HTMLElement {
       
       .list {
         display: grid;
-        grid-template-columns: ${"1fr ".repeat(this.column)};
+        grid-template-columns: repeat(auto-fit, minmax(${this.column}px, 1fr));
+        padding: 1rem;
+        border: 1px solid black;
+        border-radius: 8px;
+
+        background-color: hsl(180, 24%, 35%);
       
         gap: ${this.gutter}px;
       }

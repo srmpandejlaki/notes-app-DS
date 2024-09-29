@@ -34,7 +34,18 @@ class NotesItem extends HTMLElement {
   _updateStyle() {
     this._style.textContent = `
       :host {
-        overflow: hidden;
+        display: flex;
+        align-items: stretch;
+        background-color: white;
+      }
+
+      .data {
+        width: 100%;
+        border: 2px solid white;
+        border-radius: 8px;
+
+        padding: 10px;
+        margin-bottom: 10px;
       }
     `;
   }
@@ -45,7 +56,7 @@ class NotesItem extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-      <div>
+      <div class='data'>
         <div>
           <h3>${this._note.title}</h3>
         </div>

@@ -17,10 +17,24 @@
       <h1>Save Your Story Here</h1>
 
       <div class="container">
-        <form id="noteForm">
+        <form id="noteForm" autocomplete="off">
           <div class="input-title">
             <label for="title">Title</label>
-            <input type="text" id="title" name="title" />
+            <input
+              type="text"
+              id="title"
+              name="title"
+              required
+              minlength="6"
+              pattern="^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
+              aria-describedby="titleValidation"
+            />
+            <br />
+            <p
+              id="titleValidation"
+              class="validation-message"
+              aria-live="polite"
+            ></p>
           </div>
           <div class="input-desc">
             <label for="description">Description</label>
@@ -33,9 +47,8 @@
           <search-bar></search-bar>
         </div>
 
-        <section class="notes"></section>
         <div id="notesData" class="notesData">
-          <h2>Your Notes</h2>
+          <!-- <h2>Your Notes</h2> -->
           <note-waiting></note-waiting>
           <search-loading></search-loading>
 
