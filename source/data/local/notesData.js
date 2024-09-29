@@ -112,7 +112,7 @@ class noteData {
   }
 
   static searchNote(query) {
-    return clubs.filter((note) => {
+    return notes.filter((note) => {
       const loweredCaseNoteName = (note.title || "-").toLowerCase();
       const jammedNoteName = loweredCaseNoteName.replace(/\s/g, "");
 

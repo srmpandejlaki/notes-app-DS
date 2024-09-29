@@ -1,3 +1,7 @@
 import "./components/index.js";
 
-document.addEventListener("DOMContentLoaded", function () {});
+import home from "./view/home.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  home();
+});

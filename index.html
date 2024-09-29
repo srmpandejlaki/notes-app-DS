@@ -29,22 +29,17 @@
           <button class="save-btn" type="submit">Save Note</button>
         </form>
 
-        <div class="notesData">
+        <div id="search-container" class="search-container">
+          <search-bar></search-bar>
+        </div>
+
+        <section class="notes"></section>
+        <div id="notesData" class="notesData">
           <h2>Your Notes</h2>
-          <div id="note" class="note">
-            <div class="data">
-              <h3>Title :</h3>
-              <p>Description :</p>
-            </div>
-            <div class="data">
-              <h3>Title :</h3>
-              <p>Description :</p>
-            </div>
-            <div class="data">
-              <h3>Title :</h3>
-              <p>Description :</p>
-            </div>
-          </div>
+          <note-waiting></note-waiting>
+          <search-loading></search-loading>
+
+          <notes-list></notes-list>
         </div>
       </div>
     </main>
