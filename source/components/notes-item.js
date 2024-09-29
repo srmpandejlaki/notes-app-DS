@@ -41,8 +41,7 @@ class NotesItem extends HTMLElement {
 
       .data {
         width: 100%;
-        border: 2px solid white;
-        border-radius: 8px;
+        border-radius: 15px;
 
         padding: 10px;
         margin-bottom: 10px;

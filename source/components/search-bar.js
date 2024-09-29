@@ -59,7 +59,7 @@ class searchBar extends HTMLElement {
         padding: 16px;
         border-radius: 5px;
  
-        // position: sticky;
+        margin: 10px;
         top: 10px;
  
         box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);

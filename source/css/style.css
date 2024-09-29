@@ -46,7 +46,7 @@ h1 {
 }
 
 form {
-  width: 40vw;
+  width: 60vw;
   padding: 10px;
 
   background-color: hsl(180, 24%, 35%);
@@ -104,33 +104,3 @@ footer {
 
   background-color: darkslategrey;
 }
-
-/* media query */
-/* @media screen and (max-width: 1040px) {
-
-  .note {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    column-gap: 5px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .note {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-    column-gap: 5px;
-  }
-}
-
-@media screen and (max-width: 360px) {
-
-  .note {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-
-    column-gap: 5px;
-  }
-} */

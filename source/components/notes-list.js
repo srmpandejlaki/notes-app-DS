@@ -29,10 +29,11 @@ class NotesList extends HTMLElement {
       .list {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(${this.column}px, 1fr));
+        
+        margin: 10px;
         padding: 1rem;
-        border: 1px solid black;
-        border-radius: 8px;
 
+        border-radius: 8px;
         background-color: hsl(180, 24%, 35%);
       
         gap: ${this.gutter}px;
