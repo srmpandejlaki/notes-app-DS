@@ -96,7 +96,7 @@ class searchBar extends HTMLElement {
  
       .search-form .form-group label {
         line-height: 60px;
-        font-size: 1em;
+        font-size: 0.8em;
         font-weight: 700;
         text-transform: uppercase;
         color: hsl(180, 31%, 21%);
@@ -105,7 +105,7 @@ class searchBar extends HTMLElement {
  
         position: absolute;
         top: 0;
-        left: 20px;
+        left: 10px;
  
         user-select: none;
         pointer-events: none;

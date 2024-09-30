@@ -46,7 +46,7 @@ h1 {
 }
 
 form {
-  width: 60vw;
+  width: 60%;
   padding: 10px;
 
   background-color: hsl(180, 24%, 35%);
@@ -83,9 +83,9 @@ input {
 
 .save-btn {
   width: 5rem;
-  height: 15%;
+  height: 2rem;
   align-items: center;
-  border: 2px solid white;
+  border: 1px solid white;
 
   align-self: end;
 }

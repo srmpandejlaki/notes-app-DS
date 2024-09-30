@@ -4,7 +4,7 @@ class NotesList extends HTMLElement {
   _shadowRoot = null;
   _style = null;
 
-  _column = 250;
+  _column = 200;
   _gutter = 16;
 
   static get observedAttributes() {

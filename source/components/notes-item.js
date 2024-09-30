@@ -37,14 +37,14 @@ class NotesItem extends HTMLElement {
         display: flex;
         align-items: stretch;
         background-color: white;
+        border-radius: 10px;
       }
 
       .data {
         width: 100%;
-        border-radius: 15px;
+        border-radius: 10px;
 
         padding: 10px;
-        margin-bottom: 10px;
       }
     `;
   }
