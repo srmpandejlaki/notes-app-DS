@@ -1,6 +1,6 @@
 import utils from "../utils.js";
 import noteData from "../data/local/notesData.js";
-import { customValidation } from "/source/custom-validation.js";
+import { customValidation } from "../custom-validation.js";
 
 const home = () => {
   const notes = noteData.getAll();
