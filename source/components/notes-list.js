@@ -4,15 +4,15 @@ class NotesList extends HTMLElement {
   _shadowRoot = null;
   _style = null;
 
-  _column = 200;
-  _gutter = 16;
-
   static get observedAttributes() {
-    return ["column", "gutter"];
+    return ["margin", "padding"];
   }
 
   constructor() {
     super();
+
+    this._margin = this.getAttribute("margin");
+    this._padding = this.getAttribute("padding");
 
     this._shadowRoot = this.attachShadow({ mode: "open" });
     this._style = document.createElement("style");
@@ -28,39 +28,39 @@ class NotesList extends HTMLElement {
       
       .list {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(${this.column}px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         
-        margin: 10px;
-        padding: 1rem;
+        margin: ${this._margin}px;
+        padding: ${this._padding}rem;
 
         border-radius: 8px;
         background-color: hsl(180, 24%, 35%);
       
-        gap: ${this.gutter}px;
+        gap: 16px;
       }
     `;
   }
 
-  set column(value) {
+  set margin(value) {
     const newValue = Number(value);
     if (!utils.isValidInteger(newValue)) return;
 
-    this._column = value;
+    this._margin = value;
   }
 
-  get column() {
-    return this._column;
+  get margin() {
+    return this._margin;
   }
 
-  set gutter(value) {
+  set padding(value) {
     const newValue = Number(value);
     if (!utils.isValidInteger(newValue)) return;
 
-    this._gutter = value;
+    this._padding = value;
   }
 
-  get gutter() {
-    return this._gutter;
+  get padding() {
+    return this._padding;
   }
 
   _emptyContent() {
@@ -81,11 +81,11 @@ class NotesList extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      case "column":
-        this.column = newValue;
+      case "margin":
+        this.margin = newValue;
         break;
-      case "gutter":
-        this.gutter = newValue;
+      case "padding":
+        this.padding = newValue;
         break;
     }
 

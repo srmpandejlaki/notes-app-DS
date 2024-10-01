@@ -4,6 +4,7 @@ import { customValidation } from "../custom-validation.js";
 
 const home = () => {
   const notes = noteData.getAll();
+  console.log(notes);
 
   const NoteContainerElement = document.querySelector("#notesData");
   const ListNote = NoteContainerElement.querySelector("notes-list");
