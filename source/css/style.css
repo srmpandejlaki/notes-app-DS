@@ -9,9 +9,16 @@ body {
   background-color: #b8b8d1;
 }
 
-/* main */
-main {
-  width: 100%;
+/* img */
+img {
+  width: 25rem;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+  font-weight: lighter;
+  padding-top: 0.5rem;
 }
 
 .container {
@@ -20,15 +27,10 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 1.5rem;
 
   justify-content: center;
   margin: 1rem 0;
-}
-
-/* img */
-img {
-  width: 25rem;
 }
 
 /* section */
@@ -44,27 +46,7 @@ img {
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-}
-
-h1 {
-  color: white;
-}
-
-button {
-  background-color: #9292ce;
-  color: white;
-  border-radius: 8px;
-}
-
-button:hover {
-  background-color: #5b5f97;
-}
-
-h1 {
-  text-align: center;
-  font-weight: lighter;
-  padding-top: 0.5rem;
+  gap: 1rem;
 }
 
 form {
@@ -73,8 +55,8 @@ form {
   margin-left: 3rem;
 
   background-color: #b8b8d1;
-  border-radius: 8px;
   border: 2px solid #5b5f97;
+  border-radius: 8px;
   gap: 1rem;
 
   display: flex;
@@ -104,15 +86,27 @@ input {
   min-height: 6rem;
 }
 
+/* button-button */
+button {
+  background-color: #9292ce;
+  color: white;
+  border-radius: 8px;
+}
+
+button:hover {
+  background-color: #5b5f97;
+}
+
 .save-btn {
   width: 5rem;
   height: 2rem;
-  align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.45);
 
+  align-items: center;
   align-self: end;
 }
 
+/* realtime validation style */
 .validation-message {
   color: red;
 }
@@ -121,6 +115,7 @@ input:user-invalid {
   border: 1px solid red;
 }
 
+/* efek transparan */
 .glass {
   background: linear-gradient(135deg, #ababd3, #a7a7ca);
   backdrop-filter: blur(10px);
@@ -156,18 +151,10 @@ input:user-invalid {
   main h1 {
     font-size: 1.5rem;
   }
-
-  form {
-    margin: 0;
-  }
 }
 
 @media screen and (max-width: 320px) {
   img {
     width: 17rem;
-  }
-
-  form {
-    margin: 0;
   }
 }
