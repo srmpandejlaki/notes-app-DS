@@ -3,25 +3,23 @@ import noteData from "../data/local/notesData.js";
 import { customValidation } from "../custom-validation.js";
 
 const home = () => {
-  const notes = noteData.getAll();
-  console.log(notes);
+  const record = noteData.getAll();
+  console.log(record);
 
-  const NoteContainerElement = document.querySelector("#notesData");
-  const ListNote = NoteContainerElement.querySelector("notes-list");
+  const NoteContainer = document.querySelector("#notesData");
+  const ListNote = NoteContainer.querySelector("notes-list");
 
-  const displayResult = (notes) => {
-    const noteItemElements = notes.map((note) => {
-      const noteItemElement = document.createElement("notes-item");
-      noteItemElement.note = note;
+  const displayResult = (record) => {
+    const recordItems = record.map((note) => {
+      const recordItem = document.createElement("notes-item");
+      recordItem.note = note;
 
-      return noteItemElement;
+      return recordItem;
     });
-
     utils.emptyElement(ListNote);
-    ListNote.append(...noteItemElements);
+    ListNote.append(...recordItems);
   };
-
-  displayResult(notes);
+  displayResult(record);
 
   // custom validation
   const form = document.querySelector("form");
@@ -49,6 +47,46 @@ const home = () => {
     } else {
       connectedValidationEl.innerText = "";
     }
+  });
+
+  // tambah note baru
+  function addNote() {
+    const title = document.getElementById("title").value;
+    const body = document.getElementById("description").value;
+
+    const newNote = {
+      id: generateUUID(),
+      title,
+      body,
+      createdAt: new Date().toISOString(),
+      archived: false,
+    };
+    return newNote;
+  }
+  // generate UUID
+  function generateUUID() {
+    return (
+      "notes-" +
+      Math.floor(Math.random() * 10000) +
+      "-" +
+      Math.floor(Math.random() * 10000) +
+      "-" +
+      Math.floor(Math.random() * 10000) +
+      "-" +
+      Math.floor(Math.random() * 10000)
+    );
+  }
+
+  const formNote = document.querySelector("#noteForm");
+  formNote.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const newNote = addNote();
+
+    const recordItem = document.createElement("notes-item");
+    recordItem.note = newNote;
+    ListNote.append(recordItem);
+    formNote.reset();
   });
 };
 

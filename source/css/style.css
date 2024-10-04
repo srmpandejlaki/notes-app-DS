@@ -5,16 +5,13 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-header {
-  width: 100%;
-  background-color: darkslategrey;
+body {
+  background-color: #b8b8d1;
 }
 
 /* main */
 main {
   width: 100%;
-
-  background-color: rgb(253, 253, 253);
 }
 
 .container {
@@ -26,32 +23,58 @@ main {
   gap: 15px;
 
   justify-content: center;
-  margin: 25px 0;
+  margin: 1rem 0;
+}
+
+/* img */
+img {
+  width: 25rem;
+}
+
+/* section */
+.form-search {
+  width: 100%;
+  display: flex;
+}
+
+.search-container {
+  width: 90vw;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+h1 {
+  color: white;
 }
 
 button {
-  background-color: hsl(180, 24%, 35%);
+  background-color: #9292ce;
   color: white;
   border-radius: 8px;
 }
 
 button:hover {
-  background-color: hsl(180, 31%, 21%);
+  background-color: #5b5f97;
 }
 
 h1 {
   text-align: center;
   font-weight: lighter;
-  padding-top: 5px;
+  padding-top: 0.5rem;
 }
 
 form {
-  width: 60%;
-  padding: 10px;
+  width: 90vw;
+  padding: 1rem;
+  margin-left: 3rem;
 
-  background-color: hsl(180, 24%, 35%);
+  background-color: #b8b8d1;
   border-radius: 8px;
-  border: 1px solid rgb(70, 70, 70);
+  border: 2px solid #5b5f97;
   gap: 1rem;
 
   display: flex;
@@ -69,11 +92,11 @@ label,
 .notesData p,
 .notesData h3 {
   color: white;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
 }
 
 input {
-  padding: 8px;
+  padding: 1rem;
 }
 
 #description {
@@ -85,7 +108,7 @@ input {
   width: 5rem;
   height: 2rem;
   align-items: center;
-  border: 1px solid white;
+  border: 1px solid rgba(255, 255, 255, 0.45);
 
   align-self: end;
 }
@@ -98,9 +121,53 @@ input:user-invalid {
   border: 1px solid red;
 }
 
-/* footer */
-footer {
-  height: 8.5vh;
+.glass {
+  background: linear-gradient(135deg, #ababd3, #a7a7ca);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 10px;
+}
 
-  background-color: darkslategrey;
+/* form-search responsive */
+@media screen and (max-width: 768px) {
+  form {
+    margin-left: 0.5rem;
+  }
+
+  img {
+    width: 20rem;
+  }
+}
+
+@media screen and (max-width: 678px) {
+  .form-search {
+    margin: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-container {
+    margin-top: 2rem;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  main h1 {
+    font-size: 1.5rem;
+  }
+
+  form {
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  img {
+    width: 17rem;
+  }
+
+  form {
+    margin: 0;
+  }
 }

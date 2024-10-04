@@ -55,43 +55,29 @@ class searchBar extends HTMLElement {
       }
     
       .floating-form {
-        background-color: hsl(180, 24%, 35%);
-        padding: 16px;
-        border-radius: 5px;
- 
-        margin: 10px;
-        top: 10px;
- 
-        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+        background-color: #b8b8d1;
+        padding: 12px;
+        border-radius: 8px;
       }
  
       .search-form {
         display: flex;
-        gap: 16px;
       }
  
       .search-form .form-group {
         flex-grow: 1;
- 
         position: relative;
       }
  
       .search-form .form-group input {
         display: block;
  
-        width: 100%;
+        width: 95%;
         height: 60px;
  
         padding: 14px 10px 0 10px;
-        border-inline: none;
-        border-block-start: none;
-        border-block-end: 1px solid hsl(180, 31%, 21%);
- 
+
         font-size: 1rem;
-      }
- 
-      .search-form .form-group input:focus-visible {
-        outline: 0;
       }
  
       .search-form .form-group label {
@@ -99,20 +85,19 @@ class searchBar extends HTMLElement {
         font-size: 0.8em;
         font-weight: 700;
         text-transform: uppercase;
-        color: hsl(180, 31%, 21%);
- 
-        white-space: nowrap;
+        color: #5b5f97;
  
         position: absolute;
-        top: 0;
-        left: 10px;
- 
-        user-select: none;
-        pointer-events: none;
- 
-        transition: 150ms all ease-in-out;
       }
- 
+        
+      .glass {
+        background: linear-gradient(135deg, #ababd3, #a7a7ca);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.45);
+        border-radius: 10px;
+      }
+        
       .search-form .form-group input:focus-visible ~ label,
       .search-form .form-group input:valid ~ label {
         left: 10px;
@@ -123,8 +108,9 @@ class searchBar extends HTMLElement {
  
       .search-form button {
         border: 1px solid white;
+        border-radius: 8px;
         padding-inline: 24px;
-        background-color: hsl(180, 24%, 35%);
+        background-color: #9292ce;
  
         text-transform: uppercase;
         font-size: 1rem;
@@ -136,11 +122,7 @@ class searchBar extends HTMLElement {
       }
  
       .search-form button:hover {
-        background-color: hsl(180, 31%, 21%);
-      }
- 
-      .search-form button:active {
-        background-color: #6c9aee;
+        background-color: #5b5f97;
       }
     `;
   }
@@ -151,10 +133,10 @@ class searchBar extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-      <div class="floating-form">
+      <div class="floating-form glass">
         <form id="searchForm" class="search-form">
           <div class="form-group">
-            <input id="name" name="name" type="search" required />
+            <input id="name" name="name" type="search" />
             <label for="name">Search Your Note</label>
           </div>
  

@@ -17,14 +17,14 @@ class FooterBar extends HTMLElement {
 
       div {
         height: 8.5vh;
+        background-color: #5b5f97;
+        margin: 0;
+        padding: 0;
 
         display: flex;
         justify-content: center;
         align-items: center;
         color: white;
-
-        margin: 0;
-        padding: 0;
       }
 
       .sign {
@@ -53,5 +53,4 @@ class FooterBar extends HTMLElement {
     `;
   }
 }
-
 customElements.define("footer-bar", FooterBar);

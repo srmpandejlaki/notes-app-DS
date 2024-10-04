@@ -14,45 +14,53 @@
     </header>
 
     <main>
-      <h1>Save Your Story Here</h1>
+      <h1>Simpan Ceritamu</h1>
 
       <div class="container">
-        <form id="noteForm" autocomplete="off">
-          <div class="input-title">
-            <label for="title">Title</label>
-            <input
-              type="text"
-              id="title"
-              name="title"
-              required
-              minlength="6"
-              pattern="^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
-              aria-describedby="titleValidation"
+        <section class="form-search">
+          <form class="glass" id="noteForm" autocomplete="off">
+            <div class="input-title">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                minlength="6"
+                pattern="^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
+                aria-describedby="titleValidation"
+              />
+              <br />
+              <p
+                id="titleValidation"
+                class="validation-message"
+                aria-live="polite"
+              ></p>
+            </div>
+            <div class="input-desc">
+              <label for="description">Description</label>
+              <textarea id="description" name="description"></textarea>
+            </div>
+            <button class="save-btn" type="submit">Save Note</button>
+          </form>
+
+          <div id="search-container" class="search-container">
+            <img
+              src="source/img/note-taking-feature.jpg"
+              alt="Gambar Buku Notes"
             />
-            <br />
-            <p
-              id="titleValidation"
-              class="validation-message"
-              aria-live="polite"
-            ></p>
+            <search-bar></search-bar>
           </div>
-          <div class="input-desc">
-            <label for="description">Description</label>
-            <textarea id="description" name="description"></textarea>
+        </section>
+
+        <section class="listNote">
+          <div id="notesData" class="notesData">
+            <note-waiting></note-waiting>
+            <search-loading></search-loading>
+
+            <notes-list width="80" borderGlass="1"></notes-list>
           </div>
-          <button class="save-btn" type="submit">Save Note</button>
-        </form>
-
-        <div id="search-container" class="search-container">
-          <search-bar></search-bar>
-        </div>
-
-        <div id="notesData" class="notesData">
-          <note-waiting></note-waiting>
-          <search-loading></search-loading>
-
-          <notes-list margin="10" padding="1"></notes-list>
-        </div>
+        </section>
       </div>
     </main>
 

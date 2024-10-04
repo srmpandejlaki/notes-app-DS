@@ -9,48 +9,38 @@ class NotesItem extends HTMLElement {
     archived: null,
   };
 
+  set note(value) {
+    this._note = value;
+    this.render();
+  }
+  get note() {
+    return this._note;
+  }
+
   constructor() {
     super();
 
     this._shadowRoot = this.attachShadow({ mode: "open" });
     this._style = document.createElement("style");
   }
-
-  _emptyContent() {
-    this._shadowRoot.innerHTML = "";
-  }
-
-  set note(value) {
-    this._note = value;
-
-    // Render ulang
-    this.render();
-  }
-
-  get note() {
-    return this._note;
-  }
-
   _updateStyle() {
     this._style.textContent = `
       :host {
         display: flex;
-        align-items: stretch;
         background-color: white;
+        align-items: stretch;
         border-radius: 10px;
       }
 
       .data {
         width: 100%;
         border-radius: 10px;
-
-        padding: 10px;
+        padding: 1rem;
       }
     `;
   }
 
   render() {
-    this._emptyContent();
     this._updateStyle();
 
     this._shadowRoot.appendChild(this._style);
@@ -66,5 +56,4 @@ class NotesItem extends HTMLElement {
     `;
   }
 }
-
 customElements.define("notes-item", NotesItem);

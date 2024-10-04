@@ -13,13 +13,13 @@ class headerBar extends HTMLElement {
     this._style.textContent = `
         :host {
           width: 100%;
-
           color: white;
-
           box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
         }
 
         div {
+          width: 100%;
+          background-color: #5b5e8a;
           height: 15%;
         }
 
