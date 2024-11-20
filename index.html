@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="source/css/style.css" />
+
+    <title>Notes App</title>
+  </head>
+  <body>
+    <header>
+      <header-bar></header-bar>
+    </header>
+
+    <main>
+      <h1>Simpan Ceritamu</h1>
+
+      <div class="container">
+        <section class="form-search">
+          <form class="glass" id="noteForm" autocomplete="off">
+            <div class="input-title">
+              <label for="title">Title</label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                minlength="6"
+                pattern="^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
+                aria-describedby="titleValidation"
+              />
+              <br />
+              <p
+                id="titleValidation"
+                class="validation-message"
+                aria-live="polite"
+              ></p>
+            </div>
+            <div class="input-desc">
+              <label for="description">Description</label>
+              <textarea id="description" name="description"></textarea>
+            </div>
+            <button class="save-btn" type="submit">Save Note</button>
+          </form>
+
+          <div id="search-container" class="search-container">
+            <img
+              src="source/img/note-taking-feature.jpg"
+              alt="Gambar Buku Notes"
+            />
+            <search-bar></search-bar>
+          </div>
+        </section>
+
+        <section class="listNote">
+          <div id="notesData" class="notesData">
+            <note-waiting></note-waiting>
+            <search-loading></search-loading>
+
+            <notes-list width="80" borderGlass="1"></notes-list>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <footer-bar></footer-bar>
+    </footer>
+
+    <!-- javascript -->
+    <script type="module" src="/source/main.js"></script>
+  </body>
+</html>
