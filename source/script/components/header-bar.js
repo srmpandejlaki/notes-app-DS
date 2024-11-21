@@ -13,18 +13,18 @@ class headerBar extends HTMLElement {
     this._style.textContent = `
         :host {
           display: block;
-         background-color: #5b5e8a;
+         background-color: #1f2024;
         }
         div {
           height: 8vh;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: white;
 
-        margin: 0;
-        padding: 0;
+          margin: 0;
+          padding: 0;
         }
 
         .brand {

@@ -1,4 +1,4 @@
-import utils from "../utils.js";
+import utils from "../utils/utils.js";
 
 class NotesList extends HTMLElement {
   _shadowRoot = null;
@@ -57,15 +57,15 @@ class NotesList extends HTMLElement {
         padding: 1.5rem;
         max-width: ${this._width}vw;
 
-        border-radius: 8px;
+        border-radius: 4px;
         gap: 16px;
       }
 
       .glass {
-        background: linear-gradient(135deg, #ababd3, #a7a7ca);
+        background: linear-gradient(135deg, white, white);
         backdrop-filter: blur(10px);
         -webkit-backdrop-filter: blur(10px);
-        border: ${this._borderGlass}px solid rgba(255, 255, 255, 0.45);
+        border: ${this._borderGlass}px solid #1f2024;
         border-radius: 10px;
       }
     `;

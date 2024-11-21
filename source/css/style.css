@@ -5,23 +5,18 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-body {
-  background-color: #b8b8d1;
-}
-
 /* img */
 img {
-  width: 100%;
-  max-height: 16rem;
-  border-radius: 10px;
+  width: 80%;
   flex: 1;
 }
 
-h1 {
-  color: white;
+p {
+  color: #1f2024;
+  font-size: 1.2rem;
   text-align: center;
-  font-weight: lighter;
-  padding-top: 0.5rem;
+
+  padding: 1rem 8%;
 }
 
 /* main */
@@ -68,9 +63,9 @@ form {
   width: 100%;
   padding: 1.5rem;
 
-  background-color: #b8b8d1;
-  border: 2px solid #5b5f97;
-  border-radius: 8px;
+  background-color: white;
+  border-radius: 4px;
+  border: 1px solid #1f2024;
   gap: 1rem;
 
   display: flex;
@@ -88,7 +83,7 @@ form {
 }
 
 label {
-  color: white;
+  color: #1f2024;
   margin-bottom: 0.5rem;
 }
 
@@ -99,7 +94,7 @@ label {
 
 #title {
   padding: 0.5rem;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 #description {
@@ -107,18 +102,21 @@ label {
   resize: none;
   min-height: 6rem;
   flex: 1;
-  border-radius: 8px;
+  border-radius: 4px;
 }
 
 /* button-button */
 button {
-  background-color: #9292ce;
-  color: white;
+  background-color: white;
+  color: #1f2024;
   border-radius: 8px;
+  border-radius: 1px solid #1f2024;
+  transition: all 0.5s ease-in-out;
 }
 
 button:hover {
-  background-color: #5b5f97;
+  background-color: #474950;
+  color: white;
 }
 
 .save-btn {
@@ -142,13 +140,12 @@ input:user-invalid {
 }
 
 /* efek transparan */
-.glass {
-  background: linear-gradient(135deg, #ababd3, #a7a7ca);
+/* .glass {
+  background: linear-gradient(135deg, #f0efef, white);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.45);
-  border-radius: 10px;
-}
+  border: 1px solid #1f2024;
+} */
 
 @media screen and (max-width: 678px) {
   .form-search {

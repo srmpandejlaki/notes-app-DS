@@ -13,7 +13,7 @@ class FooterBar extends HTMLElement {
     this._style.textContent = `
       :host {
         display: block;
-         background-color: #5b5f97;
+         background-color: #1f2024;
       }
 
       div {

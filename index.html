@@ -14,7 +14,7 @@
     </header>
 
     <main>
-      <h1>Simpan Ceritamu</h1>
+      <p>Don't be afraid to write, because every story has a uniqueness that only you can convey.<br>Start with on word, and let your imagination flow without limits.</p>
 
       <div class="container">
         <section class="form-search">
@@ -29,6 +29,7 @@
                 minlength="6"
                 pattern="^(?![_.])(?!.*[_.]{2})[a-zA-Z0-9._]+(?<![_.])$"
                 aria-describedby="titleValidation"
+                placeholder="Type here.."
               />
               <br />
               <p
@@ -39,14 +40,14 @@
             </div>
             <div class="input-desc">
               <label for="description">Description</label>
-              <textarea id="description" name="description"></textarea>
+              <textarea id="description" name="description" placeholder="A story.."></textarea>
             </div>
             <button class="save-btn" type="submit">Save Note</button>
           </form>
 
           <div id="search-container" class="search-container">
             <img
-              src="source/img/note-taking-feature.jpg"
+              src="source/img/kucingg.png"
               alt="Gambar Buku Notes"
             />
             <search-bar></search-bar>
@@ -69,6 +70,6 @@
     </footer>
 
     <!-- javascript -->
-    <script type="module" src="/source/main.js"></script>
+    <script type="module" src="/source/script/main.js"></script>
   </body>
 </html>
