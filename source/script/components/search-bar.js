@@ -62,16 +62,10 @@ class searchBar extends HTMLElement {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       }
     
-      .floating-form {
-        background-color: #b8b8d1;
-        border-radius: 8px;
-        padding: 1rem 1.5rem;
-        width: 100%;
-      }
- 
       .search-form {
         display: flex;
         gap: 1rem;
+        padding-top: 1rem;
       }
  
       .form-group {
@@ -82,38 +76,31 @@ class searchBar extends HTMLElement {
         display: block;
         width: 100%;
         font-size: 1rem;
-        padding: 0.5rem 1rem;
-        border-radius: 8px;
+        padding: 1rem;
+        border-radius: 4px;
         flex: 1;
       }
  
       .search-form .form-group input::placeholder {
         font-size: 1rem;
-      }      
-        
-      .glass {
-        background: linear-gradient(135deg, #ababd3, #a7a7ca);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.45);
-        border-radius: 10px;
-      }
+      } 
  
       .search-form button {
         border: 1px solid white;
-        border-radius: 8px;
+        border-radius: 4px;
+        border: 1px solid #1f2024;
         padding: 0.5rem 1rem;
-        background-color: #9292ce;
+        background-color: white;
         font-size: 1rem;
-        color: white;
+        color: #1f2024;
  
         cursor: pointer;
- 
         transition: 100ms linear;
       }
  
       .search-form button:hover {
-        background-color: #5b5f97;
+        background-color: #1f2024;
+        color: white;
       }
 
       @media screen and (max-width: 320px) {
@@ -130,15 +117,13 @@ class searchBar extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-      <div class="floating-form glass">
-        <form id="searchForm" class="search-form">
-          <div class="form-group">
-            <input id="name" name="name" type="text" placeholder="Search Note"/>
-          </div>
+      <form id="searchForm" class="search-form">
+        <div class="form-group">
+          <input id="name" name="name" type="text" placeholder="Search Note"/>
+        </div>
  
-          <button type="submit">Search</button>
-        </form>
-      </div>
+        <button type="submit">Search</button>
+      </form>
     `;
   }
 }

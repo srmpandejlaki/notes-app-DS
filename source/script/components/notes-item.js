@@ -30,14 +30,22 @@ class NotesItem extends HTMLElement {
         display: flex;
         background-color: white;
         align-items: stretch;
-        border-radius: 10px;
+        border-radius: 4px;
       }
 
       .data {
         box-sizing: border-box;
         width: 100%;
-        border-radius: 10px;
+        border-radius: 4px;
+        border: 1px solid #1f2024;
         padding: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .data:hover {
+        background-color: #1f2024;
+        color: white;
       }
     `;
   }

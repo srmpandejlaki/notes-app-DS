@@ -1,22 +1,32 @@
-import utils from "../utils.js";
+import utils from "../utils/utils.js";
 
 class NotesList extends HTMLElement {
   _shadowRoot = null;
   _style = null;
 
   static get observedAttributes() {
-    return ["width", "borderGlass"];
+    return ["minmax", "width", "gap"];
   }
 
   constructor() {
     super();
 
     this._width = this.getAttribute("width");
-    this._borderGlass = this.getAttribute("borderGlass");
+    this._minmax = this.getAttribute("minmax");
+    this._gap = this.getAttribute("gap");
 
     this._shadowRoot = this.attachShadow({ mode: "open" });
     this._style = document.createElement("style");
     this.render();
+  }
+ 
+  set minmax(value) {
+    const newValue = Number(value);
+    if (!utils.isValidInteger(newValue)) return;
+    this._minmax = value;
+  }
+  get minmax() {
+    return this._minmax;
   }
 
   set width(value) {
@@ -27,16 +37,16 @@ class NotesList extends HTMLElement {
   get width() {
     return this._width;
   }
-
-  set borderGlass(value) {
+  
+  set gap(value) {
     const newValue = Number(value);
     if (!utils.isValidInteger(newValue)) return;
-    this._borderGlass = value;
+    this._gap = value;
   }
-  get borderGlass() {
-    return this._borderGlass;
+  get gap() {
+    return this._gap;
   }
-
+  
   _updateStyle() {
     this._style.textContent = `
       * {
@@ -53,24 +63,14 @@ class NotesList extends HTMLElement {
 
       .list {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        padding: 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(${this._minmax}px, 1fr));
+        padding: 1.5rem 0;
         max-width: ${this._width}vw;
-
-        border-radius: 8px;
-        gap: 16px;
-      }
-
-      .glass {
-        background: linear-gradient(135deg, #ababd3, #a7a7ca);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        border: ${this._borderGlass}px solid rgba(255, 255, 255, 0.45);
-        border-radius: 10px;
+        gap: ${this._gap}px;
       }
     `;
   }
-
+ 
   _emptyContent() {
     this._shadowRoot.innerHTML = "";
   }
@@ -89,11 +89,14 @@ class NotesList extends HTMLElement {
 
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
+      case "minmax":
+        this.minmax = newValue;
+        break;
       case "width":
         this.width = newValue;
         break;
-      case "borderGlass":
-        this.borderGlass = newValue;
+      case "gap":
+        this.gap = newValue;
         break;
     }
     this.render();
