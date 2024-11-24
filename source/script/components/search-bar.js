@@ -62,17 +62,10 @@ class searchBar extends HTMLElement {
         font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
       }
     
-      .floating-form {
-        background-color: white;
-        border-radius: 4px;
-        border: 1px solid #1f2024;
-        padding: 1rem 1.5rem;
-        width: 100%;
-      }
- 
       .search-form {
         display: flex;
         gap: 1rem;
+        padding-top: 1rem;
       }
  
       .form-group {
@@ -83,7 +76,7 @@ class searchBar extends HTMLElement {
         display: block;
         width: 100%;
         font-size: 1rem;
-        padding: 0.5rem 1rem;
+        padding: 1rem;
         border-radius: 4px;
         flex: 1;
       }
@@ -124,15 +117,13 @@ class searchBar extends HTMLElement {
 
     this._shadowRoot.appendChild(this._style);
     this._shadowRoot.innerHTML += `
-      <div class="floating-form glass">
-        <form id="searchForm" class="search-form">
-          <div class="form-group">
-            <input id="name" name="name" type="text" placeholder="Search Note"/>
-          </div>
+      <form id="searchForm" class="search-form">
+        <div class="form-group">
+          <input id="name" name="name" type="text" placeholder="Search Note"/>
+        </div>
  
-          <button type="submit">Search</button>
-        </form>
-      </div>
+        <button type="submit">Search</button>
+      </form>
     `;
   }
 }

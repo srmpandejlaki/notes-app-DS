@@ -17,7 +17,7 @@
       <p>Don't be afraid to write, because every story has a uniqueness that only you can convey.<br>Start with on word, and let your imagination flow without limits.</p>
 
       <div class="container">
-        <section class="form-search">
+        <section class="form-img">
           <form class="glass" id="noteForm" autocomplete="off">
             <div class="input-title">
               <label for="title">Title</label>
@@ -45,21 +45,17 @@
             <button class="save-btn" type="submit">Save Note</button>
           </form>
 
-          <div id="search-container" class="search-container">
-            <img
-              src="source/img/kucingg.png"
-              alt="Gambar Buku Notes"
-            />
-            <search-bar></search-bar>
-          </div>
+          <img
+            src="source/img/kucingg.png"
+            alt="Gambar Kucing Kalem"
+          />
         </section>
 
         <section class="listNote">
+          <search-bar></search-bar>
           <div id="notesData" class="notesData">
-            <note-waiting></note-waiting>
-            <search-loading></search-loading>
 
-            <notes-list width="80" borderGlass="1"></notes-list>
+            <notes-list width="80" minmax="200" gap="16"></notes-list>
           </div>
         </section>
       </div>

@@ -48,6 +48,18 @@ const home = () => {
       connectedValidationEl.innerText = "";
     }
   });
+  
+  const formNote = document.querySelector("#noteForm");
+  formNote.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const newNote = addNote();
+
+    const recordItem = document.createElement("notes-item");
+    recordItem.note = newNote;
+    ListNote.append(recordItem);
+    formNote.reset();
+  });
 
   // tambah note baru
   function addNote() {
@@ -63,6 +75,7 @@ const home = () => {
     };
     return newNote;
   }
+
   // generate UUID
   function generateUUID() {
     return (
@@ -76,18 +89,6 @@ const home = () => {
       Math.floor(Math.random() * 10000)
     );
   }
-
-  const formNote = document.querySelector("#noteForm");
-  formNote.addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const newNote = addNote();
-
-    const recordItem = document.createElement("notes-item");
-    recordItem.note = newNote;
-    ListNote.append(recordItem);
-    formNote.reset();
-  });
 };
 
 export default home;
