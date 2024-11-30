@@ -11,7 +11,7 @@ class NotesList extends HTMLElement {
     this._emptyContent();
 
     this.innerHTML += `
-      <div class="list">
+      <div>
         <slot></slot>
       </div>
     `;
