@@ -1,6 +1,6 @@
 class headerBar extends HTMLElement {
   _emptyContent() {
-    this.innerHTML = '';
+    this.innerHTML = "";
   }
 
   connectedCallback() {
@@ -9,7 +9,6 @@ class headerBar extends HTMLElement {
 
   render() {
     this._emptyContent();
-    this._updateStyle();
 
     this.innerHTML += `
       <div class='header'>

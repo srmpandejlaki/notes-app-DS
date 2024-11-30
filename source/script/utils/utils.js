@@ -3,6 +3,14 @@ class utils {
     element.innerHTML = "";
   }
 
+  static sleep(response = null) {
+    return new Promise((resolve) =>
+      setTimeout(() => {
+        resolve(response);
+      }, 1000),
+    );
+  }
+
   static showElement(element) {
     element.style.display = "block";
     element.hidden = false;

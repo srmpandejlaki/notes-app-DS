@@ -1,27 +1,44 @@
 import utils from "../utils/utils.js";
-import noteData from "../data/local/notesData.js";
+import noteDataAPI from "../data/remote/notesData-API.js";
 import { customValidation } from "../utils/custom-validation.js";
+import NotesApi from "../data/remote/notesData-API.js";
+
+const loadingRender = document.createElement("loading-respon");
+const noteContainer = document.querySelector("#notesData");
+const Notes = noteContainer.querySelector("notes-list");
+
+const displayResult = (record) => {
+  const recordItems = record.map((note) => {
+    const recordItem = document.createElement("notes-item");
+    recordItem.note = note;
+
+    return recordItem;
+  });
+  utils.emptyElement(Notes);
+  Notes.append(...recordItems);
+};
 
 const home = () => {
-  const record = noteData.getAll();
-  console.log(record);
+  // tampil data archive dan unArchive ketika di klik
+  const allList = document.getElementById("btnAll");
+  allList.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    archiveList.classList.remove("active");
+    allList.classList.add("active");
 
-  const NoteContainer = document.querySelector("#notesData");
-  const ListNote = NoteContainer.querySelector("notes-list");
+    renderUnArchive();
+  });
 
-  const displayResult = (record) => {
-    const recordItems = record.map((note) => {
-      const recordItem = document.createElement("notes-item");
-      recordItem.note = note;
+  const archiveList = document.getElementById("btnArchive");
+  archiveList.addEventListener("click", (ev) => {
+    ev.preventDefault();
+    allList.classList.remove("active");
+    archiveList.classList.add("active");
 
-      return recordItem;
-    });
-    utils.emptyElement(ListNote);
-    ListNote.append(...recordItems);
-  };
-  displayResult(record);
+    renderArchive();
+  });
 
-  // custom validation
+  // fungsi validasi data
   const form = document.querySelector("form");
   const titleInput = form.elements["title"];
 
@@ -48,16 +65,17 @@ const home = () => {
       connectedValidationEl.innerText = "";
     }
   });
-  
+
   const formNote = document.querySelector("#noteForm");
-  formNote.addEventListener("submit", (event) => {
+  formNote.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const newNote = addNote();
+    await NotesApi.addNote(newNote);
 
-    const recordItem = document.createElement("notes-item");
-    recordItem.note = newNote;
-    ListNote.append(recordItem);
+    renderUnArchive();
+    allList.classList.add("active");
+    archiveList.classList.remove("active");
     formNote.reset();
   });
 
@@ -91,4 +109,39 @@ const home = () => {
   }
 };
 
-export default home;
+// render data
+const renderUnArchive = async () => {
+  utils.emptyElement(Notes);
+  Notes.append(loadingRender);
+  try {
+    const record = await noteDataAPI.getNotesUnArchived();
+    await utils.sleep();
+    displayResult(record);
+
+    const btnUnArchive = document.querySelectorAll(".btnUnArchive");
+    btnUnArchive.forEach((btn) => {
+      btn.remove();
+    });
+  } catch (err) {
+    console.log("maaf data tidak bisa ditampilkan", err);
+  }
+};
+
+const renderArchive = async () => {
+  utils.emptyElement(Notes);
+  Notes.append(loadingRender);
+  try {
+    const record = await noteDataAPI.getNotesArchived();
+    await utils.sleep();
+    displayResult(record);
+
+    const btnArchive = document.querySelectorAll(".btnArchive");
+    btnArchive.forEach((btn) => {
+      btn.remove();
+    });
+  } catch (err) {
+    console.log("maaf data yang arsip tidak bisa ditampilkan", err);
+  }
+};
+
+export { home, renderArchive, renderUnArchive, displayResult };

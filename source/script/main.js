@@ -3,10 +3,11 @@ import "./components/header-bar.js";
 import "./components/loading.js";
 import "./components/notes-item.js";
 import "./components/notes-list.js";
-import "./components/search-bar.js";
+import "../css/style.css";
 
-import home from "./view/home.js";
+import { home, renderUnArchive } from "./view/home.js";
 
 document.addEventListener("DOMContentLoaded", () => {
+  renderUnArchive();
   home();
 });

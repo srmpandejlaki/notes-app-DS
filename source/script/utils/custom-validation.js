@@ -15,7 +15,7 @@ export const customValidation = (event) => {
     event.target.setCustomValidity(
       "Tidak boleh diawali dengan simbol,\
       mengandung white space atau spasi, dan\
-      mengandung karakter spesial seperti dolar ($)."
+      mengandung karakter spesial seperti dolar ($).",
     );
     return;
   }

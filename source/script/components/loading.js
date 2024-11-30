@@ -1,6 +1,6 @@
 class Loading extends HTMLElement {
   emptyContent() {
-    this.innerHTML = '';
+    this.innerHTML = "";
   }
 
   connectedCallback() {
@@ -14,4 +14,4 @@ class Loading extends HTMLElement {
   }
 }
 
-customElements.define("loading", Loading);
+customElements.define("loading-respon", Loading);

@@ -8,7 +8,6 @@ class NotesApi {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Auth-Token": "12345",
         },
         body: JSON.stringify({
           title: newNote.title,
@@ -20,7 +19,6 @@ class NotesApi {
       const responseJson = await response.json();
       const data = responseJson.data;
 
-      console.log(data);
       Swal.fire({
         title: "Berhasil!",
         text: "Notes berhasil dibuat!",
@@ -64,7 +62,7 @@ class NotesApi {
     }
   }
 
-  static async getNotesAnArchived() {
+  static async getNotesUnArchived() {
     try {
       const response = await fetch("https://notes-api.dicoding.dev/v2/notes");
       const responseJson = await response.json();
@@ -104,10 +102,7 @@ class NotesApi {
         method: "POST",
       };
 
-      const response = await fetch(
-        `${URL}/notes/${noteId}/archive`,
-        options,
-      );
+      const response = await fetch(`${URL}/notes/${noteId}/archive`, options);
       const responseJson = await response.json();
 
       console.log(responseJson.message);
@@ -126,10 +121,7 @@ class NotesApi {
         method: "POST",
       };
 
-      const response = await fetch(
-        `${URL}/notes/${noteId}/unarchive`,
-        options,
-      );
+      const response = await fetch(`${URL}/notes/${noteId}/unarchive`, options);
       const responseJson = await response.json();
 
       console.log(responseJson.message);
