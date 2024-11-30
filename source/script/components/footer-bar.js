@@ -1,42 +1,6 @@
 class FooterBar extends HTMLElement {
-  _shadowRoot = null;
-  _style = null;
-
-  constructor() {
-    super();
-
-    this._shadowRoot = this.attachShadow({ mode: "open" });
-    this._style = document.createElement("style");
-  }
-
-  _updateStyle() {
-    this._style.textContent = `
-      :host {
-        display: block;
-         background-color: #1f2024;
-      }
-
-      div {
-        height: 8vh;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: white;
-
-        margin: 0;
-        padding: 0;
-      }
-
-      .sign {
-        text-align: center;
-        font-size: 1rem;
-      }
-    `;
-  }
-
   _emptyContent() {
-    this._shadowRoot.innerHTML = "";
+    this.innerHTML = "";
   }
 
   connectedCallback() {
@@ -47,9 +11,8 @@ class FooterBar extends HTMLElement {
     this._emptyContent();
     this._updateStyle();
 
-    this._shadowRoot.appendChild(this._style);
-    this._shadowRoot.innerHTML += `
-      <div>
+    this.innerHTML += `
+      <div class='footer'>
         <p class='sign'>Mutii &copy; 2024</p>
       </div>
     `;

@@ -1,3 +1,6 @@
+import NotesApi from '../data/remote/notesData-API';
+import { displayResult } from '../view/home';
+
 class searchBar extends HTMLElement {
   _shadowRoot = null;
   _style = null;

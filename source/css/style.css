@@ -18,6 +18,28 @@ p {
   padding: 1rem 8%;
 }
 
+/* header */
+.header {
+  background-color: #1f2024;
+  height: 8vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  margin: 0;
+  padding: 0;
+}
+
+.brand {
+  color: rgb(253, 253, 253);
+}
+
+.brand span {
+  color: lightgrey;
+}
+
 /* main */
 main {
   width: 100%;
@@ -103,8 +125,27 @@ label {
   padding: 1rem;
 }
 
+.line {
+  border-bottom: 1px solid #1f2024;
+}
+
+.data {
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 4px;
+  border: 1px solid #1f2024;
+  padding: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.data:hover {
+  background-color: #1f2024;
+  color: white;
+}
+
 /* button-button */
-.save-btn {
+.save-btn, #btnAll, #btnArchive {
   font-size: 1rem;
   padding: 0.5rem 1rem;
   cursor: pointer;
@@ -124,6 +165,34 @@ button {
 button:hover {
   background-color: #1f2024;
   color: white;
+}
+
+.button {
+  display: flex;
+  gap: 1rem;
+}
+
+#btnAll, #btnArchive {
+  margin-top: 1rem;
+}
+
+/* footer */
+.footer {
+  background-color: #1f2024;
+  height: 8vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+
+  margin: 0;
+  padding: 0;
+}
+
+.sign {
+  text-align: center;
+  font-size: 1rem;
 }
 
 /* realtime validation style */
@@ -153,5 +222,13 @@ input:user-invalid {
 
   .form-img {
     flex-wrap: wrap;
+  }
+
+  .button {
+    justify-content: space-around;
+  }
+
+  #btnAll, #btnArchive {
+    width: 100%;
   }
 }

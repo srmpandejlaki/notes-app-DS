@@ -53,9 +53,18 @@
 
         <section class="listNote">
           <search-bar></search-bar>
+          <div class="line"></div>
           <div id="notesData" class="notesData">
+            <div class="button">
+              <button id="btnAll" class="active">
+                All
+              </button>
+              <button id="btnArchive">Archived</button>
+            </div>
 
-            <notes-list width="80" minmax="200" gap="16"></notes-list>
+            <notes-list width="80" minmax="200" gap="16">
+              <loading id="loading"></loading>
+            </notes-list>
           </div>
         </section>
       </div>
